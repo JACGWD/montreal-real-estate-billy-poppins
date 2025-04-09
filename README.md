@@ -1,2 +1,3 @@
-# montreal real estate billy poppins
- Theme Builing 101 School Project
+# Montreal Real Estate WP Theme by Billy Poppins
+
+ Theme Building 101 School Project

@@ -1,0 +1,569 @@
+/*
+  Theme Name: Montreal Real Estate Billy Poppins
+  Author: Billy Poppins
+  Author URI: https://www.graphicandwebdesign.ca
+  Description: Student learning theme
+  Version: 1.0
+  License: GNU General Public License v2 or later
+  License URI: http://www.gnu.org/licenses/gpl-2.0.html
+  Tested up to: 6.7
+  Requires PHP: 7
+  Text Domain: montreal-real-estate-billy-poppins
+
+  This theme, like WordPress, is licensed under the GPL.
+  Use it to make something cool, have fun, and share what you've learned with others.
+  */
+
+
+
+/* ======== SUGGESTED ORDER OF CSS RULES =========== 
+
+1. DEFINE COLOR PALETTE (USING VARIABLES)
+    1.1 Use names like 
+        --body-bg-color 
+        --header-bg-color
+        See: https://www.w3schools.com/css/css3_variables.asp
+
+2. DEFINE FONTS FAMILIES (USING VARIABLES)
+    2.1 Use Google fonts: https://fonts.google.com/
+        2.1.1 Add google fonts code to the <head> tag in header.php
+        2.1.2 Add the font family to the CSS rules below (ex: --bodytext-font)
+
+    2.2 Use Adobe fonts: https://fonts.adobe.com/fonts
+        2.1.1 Add Adobe fonts code to the <head> tag in header.php
+        2.1.2 Add the font family to the CSS rules below (ex: --bodytext-font)
+
+    2.3 Host your own fonts: see: https://www.transfonter.org
+        2.3.1 Ensure that the fonts you convert in 2.3 can legally be used that way.
+        2.3.2 See: https://github.com/JACGWD/Responsive-Design-Winter-2025/blob/main/week-9-notes.md#step-6-add-custom-fonts
+    
+    2.4 Use names like 
+        --titles-font
+        --body-font
+        --caption-font, etc
+        See: https://www.w3schools.com/css/css3_variables.asp
+
+3. ADJUST BASIC MARGINS AND PADDING FOR MOBILE
+    3.1 Header will touch the edges of the screen: no top/left/right margins. Adjust margin bottom.
+    3.2 Nav will touch the edges of the screen: no left/right margins. Adjust margin top/bottom.
+    3.3 .flex-container has zero margins and padding
+    3.4 main and aside must not touch the edges of the screen: adjust margins accordingly.
+    3.4 Footer will touch the edges of the screen: no bottom/left/right margins. Adjust margin top.
+
+4. USE A TYPESCALE
+    4.1 Make sure your chosen fonts are loading on the page, and your H1 uses that font.
+    4.2 Find the longest title used in your site
+    4.3 Adjust the H1 font size so that it fits on a small mobile device (320px at minimum)
+    4.4 Use type scale (https://spencermortensen.com/articles/typographic-scale/)
+    4.5 See: https://github.com/JACGWD/Responsive-Design-Winter-2025/blob/main/week-9-notes.md#pick-your-font-size-for-mobile
+
+5. GO WIDE
+    5.1 Based on the width of your columns (ex: desktop image width or paragraph measure), calculate how wide a container must be to hold two columns of content.
+    5.2 This value is your first media query.
+    5.3 Set containers (ex: div.wrapper or .flex-container) to display content side-by-side starting at that width.
+    5.4 See: https://github.com/JACGWD/Responsive-Design-Winter-2025/blob/main/week-8b-notes.md#setting-elements-side-by-side
+    5.5 Repeat the steps 5.1 - 5.3 for adding a third column if necessary. 
+
+*/
+
+
+/* COLOR PALETTE & FONTS VARIABLES  */
+
+:root {
+    --header-bg-color: rgb(20, 96, 228);
+    --header-fg-color: rgb(1, 35, 70);
+  
+    --topNav-bg-color: rgb(255, 255, 255);
+    --topNav-fg-color: rgb(1, 35, 70);
+    --topNav-link-color-link: rgb(1, 35, 70);
+    --topNav-link-color-visited: rgb(52, 61, 70);
+    --topNav-link-color-hover: rgb(41, 1, 70);
+    --topNav-link-color-active: rgb(70, 1, 25);
+  
+  
+    --main-bg-color: rgb(255, 255, 255);
+    --main-fg-color: rgb(1, 35, 70);
+    --sidebar-bg-color: rgb(255, 255, 255);
+    --sidebar-fg-color: rgb(1, 35, 70);
+    --footer-bg-color: rgb(59, 90, 242);
+    --footer-fg-color: rgb(1, 35, 70);
+    --bottomNav-bg-color: rgb(255, 255, 255);
+    --bottompNav-fg-color: rgb(1, 35, 70);
+  
+    --border-color-light: #ff0000;
+    --border-color-dark: #444;
+  
+    --titles-color: #1c0263;
+    --bodytext-color: #444444;
+  
+    --accent-color: rgb(63, 77, 159);
+    --highlight-color: #f3c;
+  
+    --titles-font: "Josefin Sans", sans-serif;
+    --bodytext-font: "Montserrat", sans-serif;
+
+   --footerNav-bg-color: rgb(255, 255, 255);
+   --footerNav-fg-color: rgb(1, 35, 70);
+   --footerNav-link-color-link: rgb(1, 35, 70);
+   --footerNav-link-color-visited: rgb(52, 61, 70);
+   --footerNav-link-color-hover: rgb(41, 1, 70);
+   --footerNav-link-color-active: rgb(70, 1, 25);
+  }
+
+
+   html, body {font-size: 100%;}
+
+   h1,h2,h3,h4,h5,h6,label,legend {
+    font-optical-sizing: auto;
+    font-weight: 600;  /* must be a number between 100-700 */
+    font-style: normal;
+}
+
+body {
+    font-weight: 400;
+    font-style: normal; 
+    font-optical-sizing: auto;
+    font-weight: 400;
+}
+
+
+  /* TYPESCALE for MOBILE 
+    https://spencermortensen.com/articles/typographic-scale/  */
+
+
+  h1 { font-size: 2.5em; }
+  h2 { font-size: 2.1459em; }
+  h3 { font-size: 1.842em; }
+  h4 { font-size: 1.5811em; }
+  h5 { font-size: 1.3572em; }
+  h6 { font-size: 1.165em; }
+  p { font-size: 1em; }
+  small { font-size: .8584em; }
+  
+  legend {font-size: 1.842em; }
+  label {font-size: 1.581em;}
+  figcaption { font-size: .8584em;}
+  
+ /*   ADJUST ABOVE VALUES ACCORDING TO YOUR FONT OF CHOICE, TESTED AT 320PX   
+      ON THE ** WIDEST PAGE TITLE IN THE SITE **      */
+  
+  
+
+  body {
+    font-family: var(--bodytext-font);
+    color: var(--bodytext-color); 
+    background-color: var(--main-bg-color);
+    line-height: 1.5;
+  }
+
+
+  h1,h2,h3,h4,h5,h6,label,legend {
+    font-family: var(--titles-font);
+    color: var(--titles-color);
+  }
+  
+  
+  
+header {
+    background-color: var(--header-bg-color);
+    color: var(--header-fg-color);
+    display: flex;
+    justify-content: space-between;
+}
+  
+header .branding {
+	display: flex;
+	border: 1px solid red;
+	width: 60%;
+	justify-content: space-between;
+  max-width: 16.25rem;
+}
+  
+  img.custom-logo {
+    width: 3rem;
+    height: auto;
+  }
+  /* CHANGE LOGO SIZE IN add_theme_support('custom-logo' IN FUNCTIONS.PHP ACCORDINGLY */
+  
+  header .siteinfo {}
+  
+  
+  header .description {}
+  
+  
+  .search-form {
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+    align-items: flex-end;
+  }
+  
+  .search-form label {}
+  
+  .search-form input {}
+  
+  .search-form input[type="submit"] { width: fit-content}
+
+  .primary-menu li a {
+    font-family: var(--bodytext-font);
+    color: var(--topNav-fg-color); 
+    font-size: small;
+  }
+  
+ .primary-menu li a:link {color: var(--topNav-link-color-link);}
+ .primary-menu li a:visited {color: var(--topNav-link-color-visited);}
+ .primary-menu li a:hover {color: var(--topNav-link-color-hover);}
+ .primary-menu li a:active {color: var(--topNav-link-color-active);}
+  
+
+ aside {
+    font-size: small;
+ }
+
+h1, .flex-container {
+  width: 90vw;
+  margin:0 auto;
+}
+
+
+ body {
+  line-height: 1.5;
+}
+
+h1 {
+  margin: 2em 0 1em 0;
+  line-height: 1.2;
+  }
+
+h2 {margin: 2em 0 1em 0}
+
+h3 {margin: 2em 0 1em 0}
+
+h4 {margin: 2em 0 1em 0}
+
+h5 {margin: 2em 0 1em 0}
+
+h6 {margin: 2em 0 1em 0}
+
+p {margin: 0 0 1em 0}
+
+h2 + ol {
+  margin: 2rem 0 0 2rem 0;
+  }
+
+h2 + table {
+  margin: 0.5rem 0 0 2rem 0;
+} 
+
+h2 + h3 {
+  margin: 0.25rem 0 0 2rem 0;
+}       
+
+  figure {
+    width: 90%;
+    margin: 2rem auto;
+    border: 1px solid #444;
+    padding: 1rem;
+  }
+  
+figcaption {
+  text-align: right;
+  font-style: italic;
+  margin-top: 0;
+
+  position: relative; /* when margins are zero, you can still tweak */
+  top: -0.3rem;
+}
+  
+  h2+p {}
+  
+  H2+ul, h2+ol {}
+  
+  h2+iframe {}
+  
+  h2+form {}
+  
+  h2+blockquote {}
+  
+  h2+.gallery {}
+  
+  h2+table {}
+
+  h2+h3 {}
+  
+  table {}
+  
+  .gallery {}
+  
+  blockquote {}
+  
+  h3+p {}
+  
+  section>h2 {}
+  
+  form label {}
+  
+  form label:first-child {}
+  
+  form input {}
+  
+  form input:last-child {}
+  
+  .copyright {}
+
+  footer {
+    background-color: var(--footer-bg-color);
+    font-size: small;
+}
+
+.footer-nav li a {
+    font-family: var(--bodytext-font);
+    color: var(--footerNav-fg-color); 
+    font-size: small;
+  }
+  
+  .footer-nav li a:link {color: var(--footerNav-link-color-link);}
+  .footer-nav li a:visited {color: var(--footerNav-link-color-visited);}
+  .footer-nav li a:hover {color: var(--footerNav-link-color-hover);}
+  .footer-nav li a:active {color: var(--footerNav-link-color-active);}
+
+  .byline {}
+
+  .businesscard {
+    display: flex;
+    flex-direction: column;
+    max-width: 90vw;
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+
+  
+/* required wordpress classes */
+
+.wp-caption {
+    font-family: var(--bodytext-font);
+}
+
+.wp-caption-text {
+     font-family: var(--bodytext-font);
+}
+
+.screen-reader-text  {
+     font-family: var(--bodytext-font);
+}
+
+.sticky {
+     font-family: var(--bodytext-font);
+}
+
+.gallery-caption {
+     font-family: var(--bodytext-font);
+} 
+
+.bypostauthor {
+     font-family: var(--bodytext-font);
+} 
+
+.alignright {text-align: right;}
+
+.alignleft {text-align: left;}
+
+.aligncenter {text-align: center;}  
+
+
+
+
+
+
+/* ===================  START TOP NAV CODE ======================= */
+
+ul#menu {
+    display: none; /* Hide menu by eric-corporate when page loads on mobile */
+  }
+  
+.align-right {
+    /* Specific to hamburger menu */
+      display: flex;
+      justify-content: right;
+      margin: 0 1rem 1rem 0;
+  }
+  
+.align-right button {
+    /* Add the clickable "hamburger icon" to show the menu */
+    height: 32px;
+    width: 32px;
+    display: block;
+    border: none;
+    background-image: url(img/hamburger.min.svg);
+    background-size: contain;
+    background-color: transparent;
+    cursor: pointer; 
+    padding: 0;
+  }
+  
+  ul#menu.show-nav {
+    /* .show-nav class that javascript adds to force the menu to display when hamburger tapped  */
+  
+    display: block !important; /* Avoid using !important unless absolutely necessary, here menu MUST appear */
+    width: 80%; /* Adjust to taste */
+    margin: 0 auto; /* Show menu immediately under the header, no space, but centered */
+    padding: 2rem 0; /* Add space at top and bottom of menu box */
+  }
+  
+  ul#menu.show-nav li {
+    /* Stacked links on mobile menu */
+  
+    margin: 0 auto 1rem auto; /* Spaced apart for easy finger tapping */
+  
+    /* border: 1px solid var(--pale-border); */
+    padding: 0.5rem 0 0.5rem 1rem;
+  }
+  
+  ul#menu.show-nav li:not(.submenu-parent) {
+    /* Adds background color to nav buttons, but does :NOT surround the submenu parent box */
+    /* background-color: rgba(255, 255, 255, 0.1); */
+  }
+  
+  nav.primary-nav a {
+    /* Force anchor tag to fill "button" area, so you can tap beside the text and link still works */
+    display: block; /* If block, you can now set height and width */
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    padding: 0 0.95rem;
+  }
+
+
+
+
+
+
+/* THIS MEDIA QUERY IS AT 960PX, RATHER NARROW, ADJUST AS NEEDED DEPENDING ON EX: HORIZONTAL MENU WIDTH */
+
+@media screen and (min-width: 60rem) {
+
+    h1 { font-size: 3em; }
+    h2 { font-size: 2.498em; }
+    h3 { font-size: 2.0801em; }
+    h4 { font-size: 1.7321em; }
+    h5 { font-size: 1.4422em; }
+    h6 { font-size: 1.2009em; }
+    p { font-size: 1em; }
+    small { font-size: .8327em; }
+  /* READJUST FONT SCALE BECAUSE YOU HAVE MORE ROOM NOW */  
+
+
+
+/*  CHOOSE ONE OF THESE TWO OPTIONS */
+
+/* START DESIGN OPTION 1: BOXED LAYOUT (LIKE PET SHOP) */
+
+
+/* .flex-container {
+    display: flex;
+    max-width: 60rem;
+    border: 1px solid var(--border-color-light);
+    margin: 0 auto;
+} 
+    
+main {
+    flex-basis: 70%;
+    background-color: white;
+}
+
+aside {
+    flex-basis: 30%;
+    background-color: #a8a8a8;
+} */
+
+/* END DESIGN OPTION 1: BOXED LAYOUT (LIKE PET SHOP) */
+
+
+
+
+
+/* START DESIGN OPTION 2: FULL PAGE WIDTH LAYOUT */
+
+.flex-container {
+    display: flex;
+    width: 100%;
+    padding-left: 15%; /* ADJUST TO TASTE */
+    padding-right: 15%; /* ADJUST TO TASTE */
+    border: 1px solid var(--border-color-light);
+    margin: 0 auto;
+    background-color: blue;
+} 
+
+main {
+    width: 70%;
+    max-width: 90rem;
+    background-color: white;
+}
+
+aside {
+    width: 30%;
+    background-color: #a8a8a8;
+}
+
+/* END DESIGN OPTION 2: FULL PAGE WIDTH LAYOUT */
+
+
+
+
+h1 {
+    /* same width as flex-container, if placed outside of flex-container */
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+.align-right, 
+.align-right button {
+    display: none;
+}
+/* hide hamburger on desktop */
+
+ul#menu {
+    display: flex; /* create horizontal menu */
+}
+
+
+} /* NEVER DELETE THIS BRACKET - IT CLOSES THE 60rem MEDIA QUERY */
+  
+
+
+/* ADD MORE MEDIA QUERIES AS NECESSARY */
+
+
+/* DO NOT WRITE ANYTHING BELOW THIS LINE */
+
+
+
+
+
+
+
+  /* UTILITY CLASSES */
+  
+  .sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+  }
+
+  .hide-text {
+    /* Hides the word "menu" so we only see hamburger SVG.  */
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 0;
+  }
+
+
