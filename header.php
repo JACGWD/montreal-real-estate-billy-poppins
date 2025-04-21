@@ -13,7 +13,10 @@ exit;
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     </head>
 
-<body <?php body_class(); ?>>
+<body 
+<?php 
+$slug = get_post_field( 'post_name', get_post() ); 
+body_class($slug) ?>>
 <?php wp_body_open(); ?>
 
 <div class='align-right'>

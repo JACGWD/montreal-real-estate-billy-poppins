@@ -111,4 +111,9 @@ function montreal_real_estate_theme_init(){
         wp_enqueue_script( 'montreal_real_estate_combined_scripts', get_template_directory_uri() . '/js/combined-scripts.js', array( 'jquery' ), $combined_scripts_version, true );
     }
     add_action( 'wp_enqueue_scripts', 'montreal_real_estate_combined_scripts' );
-    
+
+
+    // Control length of excerpt
+    function my_excerpt_length($length){ 
+        return 80; } 
+        add_filter('excerpt_length', 'my_excerpt_length');

@@ -8,7 +8,28 @@
 
 <?php 
     if ( have_posts() ) : 
-    while ( have_posts() ) : the_post();
+    while ( have_posts() ) : the_post(); ?>
+    <div class="byline">
+        <p>Published by: <strong><?php the_author(); ?></strong> </p>
+     <?php 
+        
+        $u_time = get_the_time('U'); 
+        $u_modified_time = get_the_modified_time('U'); 
+        if ($u_modified_time >= $u_time + 86400) { 
+        echo "<p><em>Last modified on: "; 
+        the_modified_time('F jS, Y'); 
+        echo " at "; 
+        the_modified_time(); 
+        echo "</em></p> "; } 
+        
+        ?>
+        
+    </div>
+
+
+<?php the_post_thumbnail(); ?>
+
+<?php
         the_content();
     endwhile;
 else :

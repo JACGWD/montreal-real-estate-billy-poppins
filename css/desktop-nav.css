@@ -1,0 +1,82 @@
+@media screen and (min-width: 56.8125rem) {
+
+  /* Tested my finished menu, it fits on one line at 909px.
+  909px / 16px default font size = 56.8125rem
+  So display it starting at that width. 
+  Change value in style.css too. */
+
+
+/* START hide mobile menu elements */
+
+div.align-right {
+    display: none;  
+}
+
+ul#menu {
+    display: flex;
+    margin: 0 auto;
+    flex-wrap: nowrap; /* keep on one line */
+    justify-content: flex-end;
+}
+
+div.align-right button {
+  display: none; 
+  } 
+
+/* END hide mobile menu elements */
+
+
+#menu > li > a { 
+  font-weight: unset; /* remove bold from top level menus */
+}
+
+
+nav.primary-nav {
+    background-color: yellow;
+    height: 3rem;
+    margin: 0;
+}
+
+ul#menu > li {
+  padding: 0;
+  margin: 0 2rem 0 0; /* space menu items apart */
+}
+
+
+#menu > li > a:not(first-child) {
+    margin-top: 0; /* override mobile margin-top spacing */
+}
+
+
+/* START sub-menu */
+
+.sub-menu {
+    display: none;  /* hide sub-menu until hover */
+    }  
+
+/* prepare drop-down menu for positioning */
+.menu-item-has-children {
+  position: relative;
+  }  
+
+  /* actual sub-menu appears on hover */
+.menu-item-has-children:hover .sub-menu {  
+    display: block;       
+    position: absolute; 
+    z-index: 200; 
+    top: 2.75rem; 
+    left: -1rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px solid red;
+    width: 17rem; 
+    padding: 1rem; 
+}
+
+/* highlight parent menu item */
+li.menu-item-has-children:has(.current-menu-item) {
+ border-bottom: 3px solid orange !important;
+ padding-bottom: 0.25rem;
+}
+
+
+} /* end media query */
