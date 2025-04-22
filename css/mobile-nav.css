@@ -1,11 +1,11 @@
 ul#menu {
-  display: none;
+  display: none;  /* menu hidden by default, need to tap hamburger to see it */
 }
 
 
 .align-right {
     display: flex;
-    justify-content: right;
+    justify-content: right;  /* align hamburger to right */
     margin: 1rem 1rem 1rem 0;
 }
 
@@ -14,7 +14,7 @@ ul#menu {
   width: 32px;
   display: block;
   border: none;
-  background-image: url(../img/hamburger.min.svg);
+  background-image: url(../img/hamburger.min.svg);  /* actual icon */
   background-size: contain;
   background-color: transparent;
   cursor: pointer; 
@@ -23,40 +23,31 @@ ul#menu {
 
 ul#menu.show-nav {
   list-style-type: none;
-  display: block !important;
+  display: block !important;  /* display menu when icon tapped */
   width: 80%;
   margin: 0 auto;
 }
 
-#menu > li > a { /* top level menus */
+#menu > li > a { /* only top level menus (on mobile) are bold */
   font-weight: bold;
 }
 
 
-#menu > li > a:not(first-child) {
-  margin-top: 0;
-}
-
-
-nav.primary-nav a {
+nav.primary-nav a {  /* makes tappable link fill 100% of the list item for better UX */
   display: block; 
   width: 100%;
   height: 100%;
   text-decoration: none;
-  height: 2.75rem; 
-  line-height: 2.75rem;
+  height: 2.75rem;  /* 44px is iOS recommended tappable target height */
+  line-height: 2.75rem; /* line-height = height makes text aligned vertically */
 }
 
 nav.primary-nav ul.sub-menu {
-  margin-left: 1rem;
+  margin-left: 1rem;  /* submenu is indented */
 }
 
 
-
-
-
-
-.current-menu-item a {
+.current-menu-item a {  /* highlight current page in menu */
   color: orange !important;
   font-weight: bold !important;
 }

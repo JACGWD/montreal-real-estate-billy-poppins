@@ -3,28 +3,34 @@
   /* Tested my finished menu, it fits on one line at 909px.
   909px / 16px default font size = 56.8125rem
   So display it starting at that width. 
-  Change value in style.css too. */
+  Change media query value in style.css too. */
 
 
-/* START hide mobile menu elements */
+/* START hide mobile menu elements. 
+  Hide hamburger because menu is always visible on desktop. */
 
-div.align-right {
-    display: none;  
-}
+      div.align-right {
+          display: none;  
+      }
 
-ul#menu {
-    display: flex;
-    margin: 0 auto;
-    flex-wrap: nowrap; /* keep on one line */
-    justify-content: flex-end;
-}
+      ul#menu {
+          display: flex;
+          margin: 0 auto;
+          flex-wrap: nowrap; /* keep on one line */
+          justify-content: flex-end;
+      }
 
-div.align-right button {
-  display: none; 
-  } 
+      div.align-right button {
+        display: none; 
+        } 
 
 /* END hide mobile menu elements */
 
+
+
+
+
+/* DESKTOP MENU */
 
 #menu > li > a { 
   font-weight: unset; /* remove bold from top level menus */
@@ -32,14 +38,14 @@ div.align-right button {
 
 
 nav.primary-nav {
-    background-color: yellow;
-    height: 3rem;
+    background-color: yellow; /* whatever you like here */
+    height: 3rem; /* whatever you like here */
     margin: 0;
 }
 
 ul#menu > li {
   padding: 0;
-  margin: 0 2rem 0 0; /* space menu items apart */
+  margin: 0 2rem 0 0; /* space menu items apart, space added on right for right-aligned menu */
 }
 
 
@@ -48,7 +54,10 @@ ul#menu > li {
 }
 
 
-/* START sub-menu */
+
+
+
+/* START DROP DOWN MENU */
 
 .sub-menu {
     display: none;  /* hide sub-menu until hover */
@@ -59,7 +68,10 @@ ul#menu > li {
   position: relative;
   }  
 
-  /* actual sub-menu appears on hover */
+
+
+  /* actual sub-menu appears ON :HOVER */
+
 .menu-item-has-children:hover .sub-menu {  
     display: block;       
     position: absolute; 
@@ -72,11 +84,21 @@ ul#menu > li {
     padding: 1rem; 
 }
 
+
+
+
+
+
+
+
 /* highlight parent menu item */
+
 li.menu-item-has-children:has(.current-menu-item) {
  border-bottom: 3px solid orange !important;
  padding-bottom: 0.25rem;
 }
 
 
-} /* end media query */
+
+
+} /* closes media query, do not delete */
